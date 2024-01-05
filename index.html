@@ -29,6 +29,9 @@
     <div id="imageContainer">
         <img id="randomImage" alt="Random Image">
     </div>
+    <div id="imageContainer">
+        <img id="randomImage" alt="Random Image">
+    </div>
     <script>
         // Array of predefined image URLs
         const imageUrls = [
@@ -54,14 +57,15 @@
             'images/meme19.png'
             // Add more image URLs as needed
         ];
+
         // Function to rotate the image array and display the next image
         function rotateImages() {
             // Get the current index from localStorage or default to 0
             let currentIndex = localStorage.getItem('currentIndex') || 0;
 
-            // Display the image
+            // Display the image with a cache buster to avoid caching
             const randomImageElement = document.getElementById('randomImage');
-            randomImageElement.src = imageUrls[currentIndex];
+            randomImageElement.src = imageUrls[currentIndex] + '?cache=' + new Date().getTime();
 
             // Increment the index for the next reload
             currentIndex = (currentIndex + 1) % imageUrls.length;
