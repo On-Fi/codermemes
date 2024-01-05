@@ -25,27 +25,28 @@
         <img id="randomImage" alt="Random Image">
     </div>
     <script>
-        // Function to load a random image from the "images" folder
-        function loadRandomImage() {
-            const imageFolder = 'images/';
-            const imageExtensions = ['jpg', 'jpeg', 'png', 'gif']; // Add more extensions if needed
+// Function to load a random image from the "images" folder
+function loadRandomImage() {
+    const imageFolder = 'images/';
+    const imageExtensions = ['jpg', 'jpeg', 'png', 'gif']; // Include 'gif' for GIF images
 
-            // Generate a random image file name
-            const randomFileName = Math.floor(Math.random() * 1000); // You can use a more complex logic
+    // Generate a random image file name
+    const randomFileName = Math.floor(Math.random() * 1000); // You can use a more complex logic
 
-            // Select a random image extension
-            const randomExtension = imageExtensions[Math.floor(Math.random() * imageExtensions.length)];
+    // Select a random image extension
+    const randomExtension = imageExtensions[Math.floor(Math.random() * imageExtensions.length)];
 
-            // Build the image URL
-            const randomImageUrl = `${imageFolder}${randomFileName}.${randomExtension}`;
+    // Build the image URL
+    const randomImageUrl = `${imageFolder}${randomFileName}.${randomExtension}`;
 
-            // Set the image source
-            const randomImageElement = document.getElementById('randomImage');
-            randomImageElement.src = randomImageUrl;
-        }
+    // Set the image source
+    const randomImageElement = document.getElementById('randomImage');
+    randomImageElement.src = randomImageUrl;
+}
 
-        // Load a random image when the page is loaded
-        window.onload = loadRandomImage;
+// Load a random image when the page is loaded
+window.onload = loadRandomImage;
+
     </script>
 </body>
 </html>
