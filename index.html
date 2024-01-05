@@ -52,7 +52,6 @@
             'images/meme17.gif',
             'images/meme18.png',
             'images/meme19.png'
-            // Add more image URLs as needed
         ];
 
         // Function to rotate the image array and display the next image
@@ -66,10 +65,10 @@
 
             // Increment the index for the next reload
             currentIndex = (currentIndex + 1) % imageUrls.length;
-            window.location.hash = currentIndex; // Update the URL hash
+            window.location.hash = currentIndex; 
         }
 
-        // Load a random image when the page is loaded
+        // Load another image everytime the page is loaded
         window.onload = rotateImages;
     </script>
 </body>
