@@ -48,17 +48,23 @@
             'images/meme13.png',
             // Add more image URLs as needed
         ];
+        // Function to rotate the image array and display the next image
+        function rotateImages() {
+            // Get the current index from localStorage or default to 0
+            let currentIndex = localStorage.getItem('currentIndex') || 0;
 
-        // Function to load a random image
-        function loadRandomImage() {
-            const randomIndex = Math.floor(Math.random() * imageUrls.length);
-            const randomImageUrl = imageUrls[randomIndex];
+            // Display the image
             const randomImageElement = document.getElementById('randomImage');
-            randomImageElement.src = randomImageUrl;
+            randomImageElement.src = imageUrls[currentIndex];
+
+            // Increment the index for the next reload
+            currentIndex = (currentIndex + 1) % imageUrls.length;
+            localStorage.setItem('currentIndex', currentIndex);
         }
 
         // Load a random image when the page is loaded
-        window.onload = loadRandomImage;
+        window.onload = rotateImages;
+    </script>
     </script>
 </body>
 </html>
