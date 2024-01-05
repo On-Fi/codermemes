@@ -3,9 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Memes</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #imageContainer {
+            max-width: 80%;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="imageContainer">
+        <img id="randomImage" alt="Random Image">
+    </div>
+    <script>
+        // Function to load a random image from the "images" folder
+        function loadRandomImage() {
+            const imageFolder = 'images/';
+            const imageExtensions = ['jpg', 'jpeg', 'png', 'gif']; // Add more extensions if needed
+
+            // Generate a random image file name
+            const randomFileName = Math.floor(Math.random() * 1000); // You can use a more complex logic
+
+            // Select a random image extension
+            const randomExtension = imageExtensions[Math.floor(Math.random() * imageExtensions.length)];
+
+            // Build the image URL
+            const randomImageUrl = `${imageFolder}${randomFileName}.${randomExtension}`;
+
+            // Set the image source
+            const randomImageElement = document.getElementById('randomImage');
+            randomImageElement.src = randomImageUrl;
+        }
+
+        // Load a random image when the page is loaded
+        window.onload = loadRandomImage;
+    </script>
 </body>
 </html>
